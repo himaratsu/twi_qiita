@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ツイキータ</title>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.17.2/build/cssreset/cssreset-min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<h1>ツイキータ</h1>
+
+    <h2>近況をツイートする</h2>
+    <div>
+        <p id="status_update_description">新しい投稿をポストする</p>
+        <input type="text" name="new_tweet" class="statusField" placeholder="いまなにしてる？"/>
+        <button id="post_update">投稿</button>
+    </div>
+
+    <hr>
+    <h2>新着の投稿</h2>
+    <div id="container"></div>
+    <hr>
+
+    <!-- button -->
+    <div id="readMore">もっとみる</div>
+
+	<!-- for jsrender template -->
+	<script id="tweetTemplate" type="text/x-jsrender">
+        <b>RT : {{:retweeted_status}}</b>
+        <div class="{{:retweeted_status}}"/>
+    	<div class="tweetContent">
+    		<p class="userProfileImage">
+                <img src = "{{:user.profile_image_url}}">
+            </p>
+            <p class="userScreeName">
+                {{:user.screen_name}}
+            </p>
+            <p>
+                {{:text}}
+            </p>
+    	</div>
+  	</script>
+  	<!-- /jsrender -->
+
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jsrender.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
